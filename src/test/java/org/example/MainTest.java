@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,8 +15,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MainTest {
 
     private HttpClient httpClient;
+
     @BeforeEach
-    void setUp() throws IOException, InterruptedException {
+    void setUp() {
         httpClient = HttpClient.newBuilder().build();
     }
 
@@ -30,6 +32,6 @@ class MainTest {
         //Act
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         //Assert
-        assertEquals(200,response.statusCode());
+        assertEquals(200, response.statusCode());
     }
 }
